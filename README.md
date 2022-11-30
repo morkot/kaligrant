@@ -12,7 +12,7 @@
 
 Run [Kali Linux](https://www.kali.org/) in [Vagrant](https://www.vagrantup.com/)
 
-## How to
+## How to use
 
 Just to start the virtual machine:
 
@@ -31,3 +31,7 @@ To upgrade the system with latest packages (takes quite long time):
 ```shell
 KALIGRANT_UPGRADE=true vagrant provision
 ```
+
+## Contribute
+
+Submit and issue or PR in a free form.
