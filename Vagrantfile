@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "kalilinux/rolling"
-  config.vm.box_version = "2021.3.0"
+  config.vm.box_version = "2022.3.2"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
