@@ -40,6 +40,7 @@
       apt:
         upgrade: yes
         update_cache: yes
+      when: lookup('ansible.builtin.env', 'KALIGRANT_UPGRADE') == 'true'
 
     - name: Disable autostart of light-locker to avoid screen lock
       ansible.builtin.file:
