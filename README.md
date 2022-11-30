@@ -17,6 +17,12 @@ Run [Kali Linux](https://www.kali.org/) in [Vagrant](https://www.vagrantup.com/)
 
 ## How to use
 
+Quick start:
+
+```shell
+vagrant up --provision
+```
+
 Just to start the virtual machine:
 
 ```shell
