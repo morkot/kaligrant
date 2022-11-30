@@ -30,6 +30,17 @@
         state: present
         update_cache: true
 
+    - name: Prevent grab update
+      become: true
+      ansible.builtin.dpkg_selections:
+        name: "{{ item }}"
+        selection: hold
+      loop:
+        - grub-common
+        - grub-pc
+        - grub-pc-bin
+        - grub2-common
+
     - name: Update and upgrade packages
       become: true
       apt:
