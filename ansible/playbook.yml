@@ -40,3 +40,11 @@
       apt:
         upgrade: yes
         update_cache: yes
+
+    - name: Disable autostart of light-locker to avoid screen lock
+      ansible.builtin.file:
+        path: /etc/xdg/autostart/light-locker.desktop
+        state: absent
+
+    - name: Kill light-locker process to avoid screen lock
+      ansible.builtin.shell: pkill light-locker; exit 0
