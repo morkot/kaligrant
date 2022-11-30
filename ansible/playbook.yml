@@ -1,37 +1,32 @@
 - hosts: all
+  become: true
   tasks:
     - name: Remove python-is-python2 https://www.kali.org/docs/general-use/python3-transition/
-      become: true
       ansible.builtin.package:
         name: python-is-python2
         state: absent
 
     - name: Set python to python3
-      become: true
       ansible.builtin.package:
         name: python-is-python3
         state: present
 
     - name: Set timezone to Europe/London
-      become: true
       timezone:
         name: Europe/London
 
     - name: Remove slow kali repo
-      become: true
       ansible.builtin.file:
         path: /etc/apt/sources.list
         state: absent
 
     - name: Add faster kali package repo
-      become: true
       apt_repository:
         repo: deb https://mirrors.dotsrc.org/kali kali-rolling main non-free contrib
         state: present
         update_cache: true
 
     - name: Prevent grab update
-      become: true
       ansible.builtin.dpkg_selections:
         name: "{{ item }}"
         selection: hold
@@ -42,7 +37,6 @@
         - grub2-common
 
     - name: Update and upgrade packages
-      become: true
       apt:
         upgrade: yes
         update_cache: yes
