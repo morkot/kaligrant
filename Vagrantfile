@@ -6,8 +6,6 @@ Vagrant.configure("2") do |config|
     vb.gui = true
     vb.memory = "4096"
     vb.cpus = 2
-    # vb.customize ["modifyvm", :id, "--graphicscontroller", "vboxsvga"]
-    # vb.customize 'post-boot', ["controlvm", :id, "setvideomodehint", "1920", "1080", "128"]
   end
 
   config.vm.provision "ansible" do |ansible|
