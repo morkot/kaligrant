@@ -49,3 +49,13 @@
 
     - name: Kill light-locker process to avoid screen lock
       ansible.builtin.shell: pkill light-locker; exit 0
+
+    - name: Create lightdm.conf
+      vars:
+        autologin_user: vagrant
+      ansible.builtin.template:
+        src: lightdm.conf.j2
+        dest: /etc/lightdm/lightdm.conf
+        owner: root
+        group: root
+        mode: '0644'
