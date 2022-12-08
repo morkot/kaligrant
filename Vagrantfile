@@ -1,17 +1,23 @@
-Vagrant.configure("2") do |config|
+def show_banner()
   banner = <<-MSG
-   _         _ _                       _
-  | |       | (_)                     | |
-  | | ____ _| |_  __ _ _ __ __ _ _ __ | |_
-  | |/ / _` | | |/ _` | '__/ _` | '_ \\\| __|
-  |   < (_| | | | (_| | | | (_| | | | | |_
-  |_|\\\_\\\__,_|_|_|\\\__, |_|  \\\__,_|_| |_|\\\__|
-                  __/ |
-                 |___/
+  _         _ _                       _
+ | |       | (_)                     | |
+ | | ____ _| |_  __ _ _ __ __ _ _ __ | |_
+ | |/ / _` | | |/ _` | '__/ _` | '_ \\\| __|
+ |   < (_| | | | (_| | | | (_| | | | | |_
+ |_|\\\_\\\__,_|_|_|\\\__, |_|  \\\__,_|_| |_|\\\__|
+                 __/ |
+                |___/
 
 MSG
 
-  puts(banner)
+  unless ENV['KALIGRANT_SHOW_BANNER'] == 'false'
+    puts(banner)
+  end
+end
+
+Vagrant.configure("2") do |config|
+  show_banner()
 
   config.vm.box = "kalilinux/rolling"
   config.vm.box_version = "2022.3.2"

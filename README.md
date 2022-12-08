@@ -35,12 +35,14 @@ To apply configuration defined in ansible:
 vagrant provision
 ```
 
-To upgrade the system with latest packages (takes quite long time):
+To upgrade the system with latest packages (takes quite a long time):
 
 ```shell
 KALIGRANT_UPGRADE=true vagrant provision
 ```
 
+To disable banner you need to set environment variable `KALIGRANT_SHOW_BANNER=false`.
+
 ## Contribute
 
-Submit and issue or PR in a free form.
+Submit an issue or PR in a free form.
