@@ -59,3 +59,12 @@
         owner: root
         group: root
         mode: '0644'
+
+    - name: Install Docker
+      package:
+        name: docker.io
+
+    - name: Allow run docker under vagrant user
+      user:
+        name: vagrant
+        groups: docker
