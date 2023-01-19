@@ -68,3 +68,8 @@
       user:
         name: vagrant
         groups: docker
+
+    - name: Pull the rustscan docker image
+      docker_image:
+        name: rustscan/rustscan:latest
+        source: pull
