@@ -73,3 +73,16 @@
       docker_image:
         name: rustscan/rustscan:latest
         source: pull
+
+    - name: Add rustscan alias for bash
+      lineinfile:
+        dest: /home/vagrant/.bash_aliases
+        create: true
+        line: 'alias rustscan="docker run -it --rm --name rustscan rustscan/rustscan:latest"'
+        state: present
+
+    - name: Add rustscan alias for zsh
+      lineinfile:
+        dest: /home/vagrant/.zshrc
+        line: 'alias rustscan="docker run -it --rm --name rustscan rustscan/rustscan:latest"'
+        state: present
